@@ -14,7 +14,7 @@ public enum Food {
 
     // 디저트
     CHOCOLATE_CAKE(Menu.DESSERT,"초코케이크", 15000),
-    ICE_CREAM(Menu.DESSERT"아이스크림", 5000),
+    ICE_CREAM(Menu.DESSERT, "아이스크림", 5000),
 
     // 음료
     ZERO_COLA(Menu.BEVERAGE, "제로콜라", 3000),
