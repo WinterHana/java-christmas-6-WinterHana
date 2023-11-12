@@ -1,7 +1,7 @@
 package christmas.domain.discount;
 
 public abstract class Discount {
-    int discountPrice;
+    protected int discountPrice;
 
-    public abstract int discount();
+    public abstract int discount(int price, int number);
 }
