@@ -1,10 +1,10 @@
 package christmas.domain;
 
+import christmas.domain.food.FoodGenerator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class FoodGeneratorTest {
     @DisplayName("자동 생성 테스트")

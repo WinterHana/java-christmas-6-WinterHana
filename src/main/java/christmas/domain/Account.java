@@ -1,6 +1,7 @@
 package christmas.domain;
 
 import christmas.domain.discount.Discount;
+import christmas.domain.food.FoodGenerator;
 
 import java.util.List;
 

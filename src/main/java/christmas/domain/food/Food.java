@@ -1,4 +1,4 @@
-package christmas.domain;
+package christmas.domain.food;
 
 public enum Food {
     // 애피타이저
