@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class DayGenerateTest {
+class DayGeneratorTest {
 
     @DisplayName("할인 내용에 대한 정상 테스트")
     @ParameterizedTest
@@ -15,7 +15,7 @@ class DayGenerateTest {
                     "22, 크리스마스 할인/주말 할인/",
                     "26, 주중 할인/"})
     void discountDayTest(String input, String expected) {
-        DayGenerate dayGenerate = new DayGenerate(input);
-        assertThat(dayGenerate.getDiscountContent()).isEqualTo(expected);
+        DayGenerator dayGenerator = new DayGenerator(input);
+        assertThat(dayGenerator.getDiscountContent()).isEqualTo(expected);
     }
 }

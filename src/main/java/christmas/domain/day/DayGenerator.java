@@ -5,10 +5,10 @@ import java.util.List;
 /**
  * 날짜를 입력받을 때, 예외 처리는 여기서 한다.
  */
-public class DayGenerate {
+public class DayGenerator {
     private Day day;
 
-    public DayGenerate(String inputDay) {
+    public DayGenerator(String inputDay) {
         day = new Day(Integer.parseInt(inputDay));
     }
 
