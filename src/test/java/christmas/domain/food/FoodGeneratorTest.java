@@ -1,4 +1,4 @@
-package christmas.domain;
+package christmas.domain.food;
 
 import christmas.domain.food.FoodGenerator;
 import org.junit.jupiter.api.DisplayName;

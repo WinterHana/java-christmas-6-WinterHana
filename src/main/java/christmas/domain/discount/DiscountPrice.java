@@ -1,7 +1,7 @@
 package christmas.domain.discount;
 
 public enum DiscountPrice {
-    CHRISMAS_DISCOUNT(1000),
+    CHRISMAS_DISCOUNT(100),
     SPECIAL_DISCOUNT(1000),
     WEEKDAY_DISCOUNT(2023),
     WEEKEND_DISCOUNT(2023);

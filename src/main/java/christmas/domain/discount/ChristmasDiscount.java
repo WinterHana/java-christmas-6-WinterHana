@@ -12,6 +12,6 @@ public class ChristmasDiscount extends Discount {
 
     @Override
     public int discount(int price) {
-        return price - (day - 1) * discountPrice;
+        return price - (1000 + (day - 1) * discountPrice);
     }
 }
