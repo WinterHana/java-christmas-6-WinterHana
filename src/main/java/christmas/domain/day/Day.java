@@ -2,6 +2,7 @@ package christmas.domain.day;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,11 +11,24 @@ public class Day {
     private List<DiscountDay> discountDays;
 
     public Day(int day) {
+        discountDays = new ArrayList<>();
         date = LocalDate.of(2023, 12, day);
+        addDiscount();
     }
 
     public List<DiscountDay> getDiscountDays() {
         return Collections.unmodifiableList(discountDays);
+    }
+
+    public String getDiscountContent() {
+        if(discountDays.isEmpty()) {
+            return "없음";
+        }
+        StringBuffer stringBuffer = new StringBuffer();
+        discountDays.stream().forEach(day -> {
+            stringBuffer.append(day.getName() + "/");
+        });
+        return stringBuffer.toString();
     }
 
     private void addDiscount() {
@@ -26,7 +40,7 @@ public class Day {
 
     // 1일과 25일 사이에는 크리스마스 디데이 할인
     private void addChrismasDiscount() {
-        if (date.getDayOfMonth() >= 1 || date.getDayOfMonth() <= 25) {
+        if (date.getDayOfMonth() >= 1 && date.getDayOfMonth() <= 25) {
             discountDays.add(DiscountDay.CHRISMAS);
         }
     }
