@@ -1,8 +1,13 @@
 package christmas.domain.discount;
 
 public class WeekendDiscount extends Discount {
+    public WeekendDiscount() {
+        discountPrice = DiscountPrice.WEEKEND_DISCOUNT.getDiscount();
+    }
+    
+    // main : 메인 메뉴의 개수를 입력받음
     @Override
-    public int discount(int price, int number) {
-        return 0;
+    public int discount(int price, int main) {
+        return price - (main * discountPrice);
     }
 }
