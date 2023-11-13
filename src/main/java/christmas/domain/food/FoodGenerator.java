@@ -16,14 +16,12 @@ public class FoodGenerator {
         generateFoods(inputFood);
     }
 
-    public Map<Food, Integer> getFoods() {
-        return foods;
-    }
-    
     // foods의 내용 출력하기
     public String printFoods() {
         StringBuffer foodsInfo = new StringBuffer();
-        foods.entrySet().stream().forEach(food -> {
+        foods.entrySet()
+                .stream()
+                .forEach(food -> {
             foodsInfo.append(food.getKey().getName() + " " + food.getValue() + "개\n");
         });
         return foodsInfo.toString();
@@ -48,5 +46,27 @@ public class FoodGenerator {
                 foods.put(food, Integer.parseInt(foodNumber));
             }
         });
+    }
+
+    // 총 가격 계산
+    public int totalPrice() {
+        return foods.entrySet().stream()
+                .mapToInt(food -> food.getKey().getPrice() * food.getValue())
+                .sum();
+    }
+
+    // 각 메뉴의 개수 출력(디저트, 메인)
+    public int countDessert() {
+        return (int) foods.entrySet().stream()
+                .filter(food -> food.getKey().getMenu() == Menu.DESSERT)
+                .mapToInt(food -> food.getValue())
+                .sum();
+    }
+
+    public int countMain() {
+        return (int) foods.entrySet().stream()
+                .filter(food -> food.getKey().getMenu() == Menu.MAIN)
+                .mapToInt(food -> food.getValue())
+                .sum();
     }
 }
