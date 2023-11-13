@@ -1,21 +1,31 @@
 package christmas.domain.event;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class GiftEvent implements Event {
-    private Gift gift;
+    private Map<Gift, Integer> gifts;
 
     public GiftEvent(int price) {
-        gift = Gift.NOTHING;
+        gifts = new HashMap<>();
         giveChampagne(price);
     }
 
     private void giveChampagne(int price) {
         if (price >= Gift.CHAMPAGNE.getPrice()) {
-            gift = Gift.CHAMPAGNE;
+            gifts.put(Gift.CHAMPAGNE, 1);
         }
     }
 
     @Override
     public String eventInfo() {
-        return gift.getName();
+        if(gifts.isEmpty()) {
+            return Gift.NOTHING.getName();
+        }
+        StringBuffer stringBuffer = new StringBuffer();
+        gifts.entrySet().stream()
+                .forEach(gift -> {stringBuffer.append(gift.getKey().getName() + " " + gift.getValue() + "개");
+        });
+        return stringBuffer.toString();
     }
 }

@@ -8,6 +8,7 @@ public class SymbolEvent implements Event {
 
     public SymbolEvent(int price) {
         symbol = Symbol.NOTHING;
+        giveSymbol(price);
     }
 
     private void giveSymbol(int price) {
