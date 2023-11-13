@@ -1,5 +1,6 @@
-package christmas.domain;
+package christmas.controller;
 
+import christmas.domain.day.DayGenerator;
 import christmas.domain.discount.Discount;
 import christmas.domain.event.Event;
 import christmas.domain.food.FoodGenerator;
@@ -11,11 +12,9 @@ import java.util.List;
  */
 public class Account {
     FoodGenerator foodGenerator;
-    List<Discount> discountDetail;
-    List<Event> eventDetail;
-
-    public Account(FoodGenerator foodGenerator, List<Discount> discountDetail) {
+    DayGenerator dayGenerator;
+    public Account(FoodGenerator foodGenerator, DayGenerator dayGenerator) {
         this.foodGenerator = foodGenerator;
-        this.discountDetail = discountDetail;
+        this.dayGenerator = dayGenerator;
     }
 }
