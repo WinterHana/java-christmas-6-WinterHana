@@ -22,6 +22,6 @@ public class WeekdayDiscount implements Discount {
 
     @Override
     public String toString() {
-        return "평일 할인: -" + totalDiscount  + "원";
+        return "평일 할인: " + (-1) * totalDiscount  + "원";
     }
 }

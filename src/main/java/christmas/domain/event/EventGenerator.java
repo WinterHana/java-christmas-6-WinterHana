@@ -13,6 +13,11 @@ public class EventGenerator {
         this.symbolEvent = new SymbolEvent(totalDiscount + giftEventDiscount);
     }
 
+    // 증정 상품에 대한 내용을 반환한다.
+    public String getGiftMenuInfo() {
+        return giftEvent.eventInfo();
+    }
+
     // 증정 이벤트 혜택 가격을 반환한다.
     public int getGiftEventDiscount() {
         return giftEvent.getTotalDiscount();
@@ -20,6 +25,9 @@ public class EventGenerator {
 
     // 증정 이벤트 내역을 반환한다.
     public String getGiftEventContent() {
+        if(getGiftEventDiscount() <= 0) {
+            return "";
+        }
         return giftEvent.toString();
     }
 

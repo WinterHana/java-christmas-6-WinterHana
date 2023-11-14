@@ -32,6 +32,9 @@ public class DiscountGenerator {
 
     // 할인 내역에 대하여 반환한다.
     public String getTotalDiscountContent() {
+        if(getTotalDiscountSum() <= 0) {
+            return "없음";
+        }
         StringBuffer stringBuffer = new StringBuffer();
         dayDiscount.getDiscounts().stream().forEach(
                s -> stringBuffer.append(s.toString() + "\n")
