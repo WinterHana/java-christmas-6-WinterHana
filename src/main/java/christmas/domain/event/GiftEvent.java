@@ -7,9 +7,11 @@ import java.util.Map;
 
 public class GiftEvent implements Event, Discount {
     private Map<Gift, Integer> gifts;
+    private int totalDiscount;
 
     public GiftEvent(int price) {
         gifts = new HashMap<>();
+        totalDiscount = 0;
         giveChampagne(price);
     }
 
@@ -21,23 +23,29 @@ public class GiftEvent implements Event, Discount {
 
     @Override
     public String eventInfo() {
-        if(gifts.isEmpty()) {
+        if (gifts.isEmpty()) {
             return Gift.NOTHING.getName();
         }
         StringBuffer stringBuffer = new StringBuffer();
         gifts.entrySet().stream()
-                .forEach(gift -> {stringBuffer.append(gift.getKey().getName() + " " + gift.getValue() + "개");
-        });
+                .forEach(gift -> {
+                    stringBuffer.append(gift.getKey().getName() + " " + gift.getValue() + "개");
+                });
         return stringBuffer.toString();
     }
 
     @Override
     public int discount(int price) {
-        int totalDiscount = gifts
+        totalDiscount = gifts
                 .entrySet()
                 .stream()
                 .mapToInt(s -> s.getKey().getPrice() * s.getValue())
                 .sum();
         return price - totalDiscount;
+    }
+
+    @Override
+    public String toString() {
+        return "증정 이벤트 : " + totalDiscount + "원";
     }
 }

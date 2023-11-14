@@ -1,5 +1,7 @@
 package christmas.domain.day;
 
+import christmas.domain.discount.*;
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,25 +10,25 @@ import java.util.List;
 
 public class Day {
     private LocalDate date;
-    private List<DiscountDay> discountDays;
+    private List<Discount> discounts;
 
     public Day(int day) {
-        discountDays = new ArrayList<>();
+        discounts = new ArrayList<>();
         date = LocalDate.of(2023, 12, day);
         addDiscount();
     }
 
-    public List<DiscountDay> getDiscountDays() {
-        return Collections.unmodifiableList(discountDays);
+    public List<Discount> getDiscountDays() {
+        return Collections.unmodifiableList(discounts);
     }
 
     public String getDiscountContent() {
-        if(discountDays.isEmpty()) {
+        if(discounts.isEmpty()) {
             return "없음";
         }
         StringBuffer stringBuffer = new StringBuffer();
-        discountDays.stream().forEach(day -> {
-            stringBuffer.append(day.getName() + "/");
+        discounts.stream().forEach(day -> {
+            stringBuffer.append(day + "/");
         });
         return stringBuffer.toString();
     }
@@ -41,7 +43,7 @@ public class Day {
     // 1일과 25일 사이에는 크리스마스 디데이 할인
     private void addChrismasDiscount() {
         if (date.getDayOfMonth() >= 1 && date.getDayOfMonth() <= 25) {
-            discountDays.add(DiscountDay.CHRISMAS);
+            discounts.add(new ChristmasDiscount());
         }
     }
 
@@ -49,7 +51,7 @@ public class Day {
     private void addSpecialDiscount() {
         if (date.getDayOfWeek() == DayOfWeek.SUNDAY
                 || date.getDayOfMonth() == 25) {
-            discountDays.add(DiscountDay.SPECIAL);
+            discounts.add(new SpecialDiscount());
         }
     }
 
@@ -57,7 +59,7 @@ public class Day {
     private void addWeekendDiscount() {
         if (date.getDayOfWeek() == DayOfWeek.FRIDAY
                 || date.getDayOfWeek() == DayOfWeek.SATURDAY) {
-            discountDays.add(DiscountDay.WEEKEND);
+            discounts.add(new WeekendDiscount());
         }
     }
 
@@ -68,7 +70,7 @@ public class Day {
                 || date.getDayOfWeek() == DayOfWeek.WEDNESDAY
                 || date.getDayOfWeek() == DayOfWeek.THURSDAY
                 || date.getDayOfWeek() == DayOfWeek.SUNDAY) {
-            discountDays.add(DiscountDay.WEEKDAY);
+            discounts.add(new WeekdayDiscount());
         }
     }
 }

@@ -1,5 +1,7 @@
 package christmas.domain.day;
 
+import christmas.domain.discount.Discount;
+
 import java.util.List;
 
 /**
@@ -16,9 +18,7 @@ public class DayGenerator {
         return day.getDiscountContent();
     }
 
-    public List<DiscountDay> getDiscountDays() {
-        return day.getDiscountDays();
-    }
+
 
 
     /**

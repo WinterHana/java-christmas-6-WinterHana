@@ -10,10 +10,10 @@ class DayGeneratorTest {
 
     @DisplayName("할인 내용에 대한 정상 테스트")
     @ParameterizedTest
-    @CsvSource(value = {"12, 크리스마스 할인/주중 할인/",
-                    "17, 크리스마스 할인/특별 할인/주중 할인/",
-                    "22, 크리스마스 할인/주말 할인/",
-                    "26, 주중 할인/"})
+    @CsvSource(value = {"12, 크리스마스 디데이 할인 : -0원/평일 할인 : -0원/",
+                    "17, 크리스마스 디데이 할인 : -0원/특별 할인 : -0원/평일 할인 : -0원/",
+                    "22, 크리스마스 디데이 할인 : -0원/주말 할인 : -0원/",
+                    "26, 평일 할인 : -0원/"})
     void discountDayTest(String input, String expected) {
         DayGenerator dayGenerator = new DayGenerator(input);
         assertThat(dayGenerator.getDiscountContent()).isEqualTo(expected);
