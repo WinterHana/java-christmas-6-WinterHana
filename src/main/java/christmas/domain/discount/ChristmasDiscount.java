@@ -1,7 +1,8 @@
 package christmas.domain.discount;
 
-public class ChristmasDiscount extends Discount {
+public class ChristmasDiscount implements Discount {
     private int day;    // day : 1일부터 25일까지 입력을 받음
+    int discountPrice;
 
     public ChristmasDiscount(int day) {
         discountPrice = DiscountPrice.CHRISMAS_DISCOUNT.getDiscount();

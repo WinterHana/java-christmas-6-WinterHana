@@ -1,7 +1,9 @@
 package christmas.domain.discount;
 
-public class WeekendDiscount extends Discount {
+public class WeekendDiscount implements Discount {
     private int main;   // main : 메인 메뉴의 개수를 입력받음
+    int discountPrice;
+
     public WeekendDiscount(int main) {
         discountPrice = DiscountPrice.WEEKEND_DISCOUNT.getDiscount();
         this.main = main;
