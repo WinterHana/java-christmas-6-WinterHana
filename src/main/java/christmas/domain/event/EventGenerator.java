@@ -9,7 +9,8 @@ public class EventGenerator {
 
     public EventGenerator(int priceNotDiscount, int totalDiscount) {
         this.giftEvent = new GiftEvent(priceNotDiscount);
-        this.symbolEvent = new SymbolEvent(totalDiscount);
+        int giftEventDiscount = giftEvent.getTotalDiscount();       // 증정 상품에 대한 혜택 금액 반영
+        this.symbolEvent = new SymbolEvent(totalDiscount + giftEventDiscount);
     }
 
     // 증정 이벤트 혜택 가격을 반환한다.

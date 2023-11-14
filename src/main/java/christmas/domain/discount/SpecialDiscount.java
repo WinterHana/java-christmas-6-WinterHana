@@ -20,6 +20,6 @@ public class SpecialDiscount implements Discount {
 
     @Override
     public String toString() {
-        return "특별 할인 : -" + totalDiscount  + "원";
+        return "특별 할인: -" + totalDiscount  + "원";
     }
 }

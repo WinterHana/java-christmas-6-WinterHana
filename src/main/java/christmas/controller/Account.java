@@ -28,20 +28,21 @@ public class Account {
         return this.foodGenerator.totalPrice();
     }
 
-    // 총 혜택 금액을 가져온다.
-    public int getTotalDiscountSum() {
+    // 증정 메뉴를 제외한 총 혜택 금액을 가져온다.
+    public int getTotalDiscountSumExceptGift() {
         return this.discountGenerator.getTotalDiscountSum();
     }
 
-    // 혜택 내역을 가져온다.
+    // 증정 메뉴가 포함된 혜택 내역을 가져온다.
     public String getTotalDiscountContent() {
-        return this.discountGenerator.getTotalDiscountContent();
+        return this.discountGenerator.getTotalDiscountContent()
+                 + eventGenerator.getGiftEventContent();
     }
 
     // 증정 내역를 반환한다.
-    public String getGiftEventContent() {
-        return eventGenerator.getGiftEventContent();
-    }
+//    public String getGiftEventContent() {
+//        return eventGenerator.getGiftEventContent();
+//    }
 
     // 증정 제품의 가격을 반환한다.
     public int getGiftEventDiscount() {
@@ -53,5 +54,8 @@ public class Account {
         return eventGenerator.getSymbolEventContent();
     }
 
-
+    // 출력할 총혜택 금액을 반환한다.
+    public int getTotalDiscountSum() {
+        return getTotalDiscountSumExceptGift() + getGiftEventDiscount();
+    }
 }

@@ -21,6 +21,6 @@ public class ChristmasDiscount implements Discount {
 
     @Override
     public String toString() {
-        return "크리스마스 디데이 할인 : -" + totalDiscount + "원";
+        return "크리스마스 디데이 할인: -" + totalDiscount + "원";
     }
 }
