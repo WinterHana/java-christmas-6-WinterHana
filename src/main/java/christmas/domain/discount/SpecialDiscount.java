@@ -9,9 +9,14 @@ public class SpecialDiscount implements Discount {
     }
 
     @Override
-    public int discount(int price) {
+    public int discount() {
         totalDiscount = discountPrice;
-        return price - totalDiscount;
+        return totalDiscount;
+    }
+
+    @Override
+    public int getTotalDiscount() {
+        return totalDiscount;
     }
 
     @Override

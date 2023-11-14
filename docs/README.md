@@ -24,7 +24,7 @@
 - [x] 음식의 종류 정리 - FoodGenerator
 - [x] 할인의 종류를 나눠서 클래스 만들기 - Discount,
   - [x] Discount 클래스를 상속받은 여러 가지 경우의 클래스 구현
-- [x] 날짜에 따른 할인에 대해 정리 - Day, DayGenerator
+- [x] 날짜에 따른 할인에 대해 정리 - DayDiscount, DiscountGenerator
   - [ ] 리스트를 만들어서 Discount를 정리한다.
 - [x] 이벤트 배지에 대해 나눠서 클래스 만들기 - SymbolEvent
 - [x] 증정품에 대하여 클래스 만들기 - GiftEvent

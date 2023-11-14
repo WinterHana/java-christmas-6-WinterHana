@@ -1,11 +1,13 @@
 package christmas.domain.discount;
 
 public interface Discount {
-    default int discount(int price, int number) {
-        return price;
+    default int discount() {
+        return 0;
     }
 
-    default int discount(int price) {
-        return price;
+    default int discount(int nunber) {
+        return 0;
     }
+
+    int getTotalDiscount();
 }

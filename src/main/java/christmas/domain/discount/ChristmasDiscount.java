@@ -11,12 +11,14 @@ public class ChristmasDiscount implements Discount {
 
     // day : 1일부터 25일까지 입력을 받음
     @Override
-    public int discount(int price, int day) {
+    public int discount(int day) {
         totalDiscount = 1000 + (day - 1) * discountPrice;
-        if (day >= 1 && day <= 25) {
-            return price - totalDiscount;
-        }
-        return price;
+        return totalDiscount;
+    }
+
+    @Override
+    public int getTotalDiscount() {
+        return totalDiscount;
     }
 
     @Override

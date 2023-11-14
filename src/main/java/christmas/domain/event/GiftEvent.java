@@ -35,13 +35,18 @@ public class GiftEvent implements Event, Discount {
     }
 
     @Override
-    public int discount(int price) {
+    public int discount() {
         totalDiscount = gifts
                 .entrySet()
                 .stream()
                 .mapToInt(s -> s.getKey().getPrice() * s.getValue())
                 .sum();
-        return price - totalDiscount;
+        return totalDiscount;
+    }
+
+    @Override
+    public int getTotalDiscount() {
+        return totalDiscount;
     }
 
     @Override

@@ -1,8 +1,6 @@
 package christmas.controller;
 
-import christmas.domain.day.DayGenerator;
-import christmas.domain.day.DiscountDay;
-import christmas.domain.discount.Discount;
+import christmas.domain.day.DiscountGenerator;
 import christmas.domain.event.Event;
 import christmas.domain.food.FoodGenerator;
 
@@ -13,12 +11,12 @@ import java.util.List;
  */
 public class Account {
     private FoodGenerator foodGenerator;
-    private DayGenerator dayGenerator;
+    private DiscountGenerator discountGenerator;
     private List<Event> events;
 
-    public Account(FoodGenerator foodGenerator, DayGenerator dayGenerator) {
+    public Account(FoodGenerator foodGenerator, DiscountGenerator discountGenerator) {
         this.foodGenerator = foodGenerator;
-        this.dayGenerator = dayGenerator;
+        this.discountGenerator = discountGenerator;
     }
 
     // 할인 전 총 금액을 가져옴
@@ -26,5 +24,5 @@ public class Account {
         return this.foodGenerator.totalPrice();
     }
 
-
+    // 총 혜택 금액을 가져온다.
 }

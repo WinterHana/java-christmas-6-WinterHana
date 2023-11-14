@@ -10,9 +10,14 @@ public class WeekdayDiscount implements Discount {
 
     // dessert : 디저트 메뉴의 개수를 입력 받음
     @Override
-    public int discount(int price, int dessert) {
+    public int discount(int dessert) {
         totalDiscount = dessert * discountPrice;
-        return price - totalDiscount;
+        return totalDiscount;
+    }
+
+    @Override
+    public int getTotalDiscount() {
+        return totalDiscount;
     }
 
     @Override
