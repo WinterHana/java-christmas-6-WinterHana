@@ -9,8 +9,8 @@ class DiscountTest {
     @DisplayName("크리스마스 할인 정상 테스트")
     @Test
     void chrismasDiscountTest() {
-        Discount dc = new ChristmasDiscount(10);
-        assertThat(dc.discount(10000)).isEqualTo(8100);
+        Discount dc = new ChristmasDiscount();
+        assertThat(dc.discount(10000, 10)).isEqualTo(8100);
     }
 
     @DisplayName("특별 할인 정상 테스트")
@@ -23,14 +23,14 @@ class DiscountTest {
     @DisplayName("주간 할인 정상 테스트")
     @Test
     void weekdayDiscountTest() {
-        Discount dc = new WeekdayDiscount(5);
-        assertThat(dc.discount(152000)).isEqualTo(141885);
+        Discount dc = new WeekdayDiscount();
+        assertThat(dc.discount(152000, 5)).isEqualTo(141885);
     }
 
     @DisplayName("주말 할인 정상 테스트")
     @Test
     void weekendDiscountTest() {
-        Discount dc = new WeekendDiscount(7);
-        assertThat(dc.discount(126000)).isEqualTo(111839);
+        Discount dc = new WeekendDiscount();
+        assertThat(dc.discount(126000, 7)).isEqualTo(111839);
     }
 }

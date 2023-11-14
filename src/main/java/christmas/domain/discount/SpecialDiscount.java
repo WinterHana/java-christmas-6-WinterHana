@@ -1,7 +1,7 @@
 package christmas.domain.discount;
 
 public class SpecialDiscount implements Discount {
-    int discountPrice;
+    private int discountPrice;
 
     public SpecialDiscount() {
         discountPrice = DiscountPrice.SPECIAL_DISCOUNT.getDiscount();
