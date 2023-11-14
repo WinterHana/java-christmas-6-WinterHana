@@ -15,17 +15,6 @@ public class FoodGenerator {
         foods = new HashMap<>();
         generateFoods(inputFood);
     }
-
-    // foods의 내용 출력하기
-    public String printFoods() {
-        StringBuffer foodsInfo = new StringBuffer();
-        foods.entrySet()
-                .stream()
-                .forEach(food -> {
-            foodsInfo.append(food.getKey().getName() + " " + food.getValue() + "개\n");
-        });
-        return foodsInfo.toString();
-    }
     
     // "," 기준으로 나누기
     private void generateFoods(String inputFood) {
@@ -46,6 +35,17 @@ public class FoodGenerator {
                 foods.put(food, Integer.parseInt(foodNumber));
             }
         });
+    }
+
+    // foods의 내용 출력하기
+    public String printFoods() {
+        StringBuffer foodsInfo = new StringBuffer();
+        foods.entrySet()
+                .stream()
+                .forEach(food -> {
+                    foodsInfo.append(food.getKey().getName() + " " + food.getValue() + "개\n");
+                });
+        return foodsInfo.toString();
     }
 
     // 총 가격 계산

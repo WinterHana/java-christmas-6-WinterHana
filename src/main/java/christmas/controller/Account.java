@@ -25,4 +25,14 @@ public class Account {
     }
 
     // 총 혜택 금액을 가져온다.
+    public int getTotalDiscountSum() {
+        return this.discountGenerator.getTotalDiscountSum();
+    }
+
+    // 혜택 내역을 가져온다.
+    public String getTotalDiscountContent() {
+        return this.discountGenerator.getTotalDiscountContent();
+    }
+
+    // 증정 메뉴에 대하여 혜택 내역에 추가하기
 }

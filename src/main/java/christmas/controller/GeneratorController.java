@@ -8,4 +8,7 @@ public class GeneratorController {
         return new FoodGenerator(menu);
     }
 
+    public DiscountGenerator getDiscountGenerator(String day, int main, int dessert) {
+        return new DiscountGenerator(day, main, dessert);
+    }
 }
