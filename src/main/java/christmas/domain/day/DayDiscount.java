@@ -5,27 +5,23 @@ import christmas.domain.discount.*;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class DayDiscount {
     private LocalDate date;
     private ArrayList<Discount> discounts;
-    private int day;
-    private int menu;
-    private int dessert;
-    public DayDiscount(int day, int menu, int dessert) {
+
+    public DayDiscount(int day, int main, int dessert) {
         this.discounts = new ArrayList<>();
         this.date = LocalDate.of(2023, 12, day);
-        addDiscount(day, menu, dessert);
+        addDiscount(day, main, dessert);
     }
 
     public List<Discount> getDiscounts() {
-        return discounts;
+        return Collections.unmodifiableList(discounts);
     }
 
-    public int getDay() {
-        return day;
-    }
 
     // 테스트를 위한 메서드
     public String getDiscountContent() {
@@ -40,10 +36,10 @@ public class DayDiscount {
     }
 
     // 일수에 따른 할인률을 추가한다.
-    private void addDiscount(int day, int menu, int dessert) {
+    private void addDiscount(int day, int main, int dessert) {
         addChrismasDiscount(day);
         addSpecialDiscount();
-        addWeekendDiscount(menu);
+        addWeekendDiscount(main);
         addWeekdayDiscount(dessert);
     }
 
