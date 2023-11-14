@@ -15,7 +15,7 @@ class DayDiscountGeneratorTest {
                     "22, 크리스마스 디데이 할인 : -0원/주말 할인 : -0원/",
                     "26, 평일 할인 : -0원/"})
     void discountDayTest(String input, String expected) {
-        DiscountGenerator discountGenerator = new DiscountGenerator(input);
+        DiscountGenerator discountGenerator = new DiscountGenerator(input, 0, 0);
         assertThat(discountGenerator.getDiscountContent()).isEqualTo(expected);
     }
 }

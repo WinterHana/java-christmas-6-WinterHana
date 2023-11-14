@@ -3,16 +3,16 @@ package christmas.domain.discount;
 public class WeekendDiscount implements Discount {
     private int discountPrice;
     private int totalDiscount;     // 할인 가격을 계산해서 저장
-    public WeekendDiscount() {
+    private int main;
+    public WeekendDiscount(int main) {
         discountPrice = DiscountPrice.WEEKEND_DISCOUNT.getDiscount();
-        totalDiscount = 0;
+        discount(main);
     }
 
     // main : 메인 메뉴의 개수를 입력받음
     @Override
-    public int discount(int main) {
+    public void discount(int main) {
         totalDiscount = main * discountPrice;
-        return totalDiscount;
     }
 
     @Override

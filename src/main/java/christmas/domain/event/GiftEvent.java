@@ -11,8 +11,8 @@ public class GiftEvent implements Event, Discount {
 
     public GiftEvent(int price) {
         gifts = new HashMap<>();
-        totalDiscount = 0;
         giveChampagne(price);
+        discount();
     }
 
     private void giveChampagne(int price) {
@@ -35,13 +35,12 @@ public class GiftEvent implements Event, Discount {
     }
 
     @Override
-    public int discount() {
+    public void discount() {
         totalDiscount = gifts
                 .entrySet()
                 .stream()
                 .mapToInt(s -> s.getKey().getPrice() * s.getValue())
                 .sum();
-        return totalDiscount;
     }
 
     @Override

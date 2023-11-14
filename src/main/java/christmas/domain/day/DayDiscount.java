@@ -10,17 +10,23 @@ import java.util.List;
 public class DayDiscount {
     private LocalDate date;
     private ArrayList<Discount> discounts;
-
-    public DayDiscount(int day) {
-        discounts = new ArrayList<>();
-        date = LocalDate.of(2023, 12, day);
-        addDiscount();
+    private int day;
+    private int menu;
+    private int dessert;
+    public DayDiscount(int day, int menu, int dessert) {
+        this.discounts = new ArrayList<>();
+        this.date = LocalDate.of(2023, 12, day);
+        addDiscount(day, menu, dessert);
     }
 
     public List<Discount> getDiscounts() {
         return discounts;
     }
-    
+
+    public int getDay() {
+        return day;
+    }
+
     // 테스트를 위한 메서드
     public String getDiscountContent() {
         if(discounts.isEmpty()) {
@@ -34,17 +40,17 @@ public class DayDiscount {
     }
 
     // 일수에 따른 할인률을 추가한다.
-    private void addDiscount() {
-        addChrismasDiscount();
+    private void addDiscount(int day, int menu, int dessert) {
+        addChrismasDiscount(day);
         addSpecialDiscount();
-        addWeekendDiscount();
-        addWeekdayDiscount();
+        addWeekendDiscount(menu);
+        addWeekdayDiscount(dessert);
     }
 
     // 1일과 25일 사이에는 크리스마스 디데이 할인
-    private void addChrismasDiscount() {
+    private void addChrismasDiscount(int day) {
         if (date.getDayOfMonth() >= 1 && date.getDayOfMonth() <= 25) {
-            discounts.add(new ChristmasDiscount());
+            discounts.add(new ChristmasDiscount(day));
         }
     }
 
@@ -57,21 +63,21 @@ public class DayDiscount {
     }
 
     // 금요일, 토요일에는 주말 할인
-    private void addWeekendDiscount() {
+    private void addWeekendDiscount(int menu) {
         if (date.getDayOfWeek() == DayOfWeek.FRIDAY
                 || date.getDayOfWeek() == DayOfWeek.SATURDAY) {
-            discounts.add(new WeekendDiscount());
+            discounts.add(new WeekendDiscount(menu));
         }
     }
 
     // 일요일 ~ 목요일에는 평일 할인
-    private void addWeekdayDiscount() {
+    private void addWeekdayDiscount(int dessert) {
         if (date.getDayOfWeek() == DayOfWeek.MONDAY
                 || date.getDayOfWeek() == DayOfWeek.TUESDAY
                 || date.getDayOfWeek() == DayOfWeek.WEDNESDAY
                 || date.getDayOfWeek() == DayOfWeek.THURSDAY
                 || date.getDayOfWeek() == DayOfWeek.SUNDAY) {
-            discounts.add(new WeekdayDiscount());
+            discounts.add(new WeekdayDiscount(dessert));
         }
     }
 }

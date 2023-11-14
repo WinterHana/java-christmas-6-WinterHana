@@ -10,8 +10,8 @@ import java.util.List;
 public class DiscountGenerator {
     private DayDiscount dayDiscount;
 
-    public DiscountGenerator(String inputDay) {
-        dayDiscount = new DayDiscount(Integer.parseInt(inputDay));
+    public DiscountGenerator(String inputDay, int menu, int dessert) {
+        dayDiscount = new DayDiscount(Integer.parseInt(inputDay), menu, dessert);
     }
 
     public String getDiscountContent() {
@@ -21,6 +21,8 @@ public class DiscountGenerator {
     public List<Discount> getDiscounts() {
         return dayDiscount.getDiscounts();
     }
+
+    public int getTotal
 
     /**
      * 예외 처리하기...

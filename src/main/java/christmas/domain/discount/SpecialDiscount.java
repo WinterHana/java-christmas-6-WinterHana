@@ -5,13 +5,12 @@ public class SpecialDiscount implements Discount {
     private int totalDiscount;     // 할인 가격을 계산해서 저장
     public SpecialDiscount() {
         discountPrice = DiscountPrice.SPECIAL_DISCOUNT.getDiscount();
-        totalDiscount = 0;
+        discount();
     }
 
     @Override
-    public int discount() {
+    public void discount() {
         totalDiscount = discountPrice;
-        return totalDiscount;
     }
 
     @Override

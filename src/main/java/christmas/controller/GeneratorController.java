@@ -8,7 +8,4 @@ public class GeneratorController {
         return new FoodGenerator(menu);
     }
 
-    public DiscountGenerator getDayGenerator(String day) {
-        return new DiscountGenerator(day);
-    }
 }
