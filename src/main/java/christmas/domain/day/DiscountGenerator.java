@@ -1,11 +1,15 @@
 package christmas.domain.day;
 
 import christmas.domain.discount.Discount;
+import christmas.util.DateRange;
+import christmas.util.ErrorMessage;
+import christmas.util.RegularExpression;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
- * 날짜를 입력받을 때, 예외 처리는 여기서 한다.
+ * 날짜를 입력받은 후, 관련된 일을 수행한다.
  */
 public class DiscountGenerator {
     private DayDiscount dayDiscount;
@@ -16,10 +20,6 @@ public class DiscountGenerator {
 
     public String getDiscountContent() {
         return dayDiscount.getDiscountContent();
-    }
-
-    public List<Discount> getDiscounts() {
-        return dayDiscount.getDiscounts();
     }
 
     // 총 혜택 금액을 반환한다.
@@ -41,9 +41,4 @@ public class DiscountGenerator {
         );
         return stringBuffer.toString();
     }
-
-
-    /**
-     * 예외 처리하기...
-     */
 }
