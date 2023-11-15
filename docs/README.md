@@ -31,7 +31,6 @@
 - [x] 총 계산서 만들기 - AccountController
   - [x] 먼저 FoodGenerator, DiscountGenerator를 통해 Account를 만든다.
   - [x] SymbolEvent, GiftEvent를 적용한다.
-- [x] Generator들은 GeneratorController에서 적용한다.
 
 ### 5. Enum
 - [x] Menu
