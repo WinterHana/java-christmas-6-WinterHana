@@ -33,13 +33,18 @@
   - [x] SymbolEvent, GiftEvent를 적용한다.
 
 ### 5. Enum
-- [x] Menu
+- Menu
   - [x] 에피타이저, 메인, 디저트, 음료 내용 생성 
   - [x] Food 열거형으로 Menu 열거형과 함께 음식 정리
 - [x] DiscountPrice : 각각의 할인에 대한 열거형 생성
 - [x] DiscountDay : 할인에 대한 정보 정리
 - [x] Gift : 증정품 정리
 - [x] Symbol : 이벤트 뱃지 정리
+- util
+  - [x] DateRange : 달의 범위를 저장. (예시 : 12월의 경우 1, 31)
+  - [x] ErrorMessage : 에러 메시지 정리
+  - [x] RegularExpression : 예외 처리를 위한 정규식 정리
+
 
 예외 상황
 ----------------
