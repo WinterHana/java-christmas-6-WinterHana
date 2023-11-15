@@ -8,7 +8,7 @@ public class OutputView {
     private Account account;
     public OutputView(String day, String menu) {
         account = AccountController.makeAccount(day, menu);
-        System.out.printf("12월 %s일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!\n", day);
+        System.out.printf("12월 %s일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!\n\n", day);
     }
 
     public void outputResult() {
@@ -38,7 +38,7 @@ public class OutputView {
 
     private void outputTotalDiscountContent() {
         System.out.println("<혜택 내역>");
-        System.out.println(account.getTotalDiscountContent() + "\n");
+        System.out.println(account.getTotalDiscountContent());
     }
 
     private void outputTotalDiscountSum() {

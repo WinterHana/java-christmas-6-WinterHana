@@ -46,7 +46,7 @@ public class Account {
     // 증정 메뉴에 대한 정보를 가져온다.
     public String getGiftMenuInfo() {
         if(getTotalPriceNotDiscount() < DISCOUNT_BASE_PRICE) {
-            return "없음";
+            return "없음\n";
         }
         return this.eventGenerator.getGiftMenuInfo();
     }
@@ -78,7 +78,7 @@ public class Account {
         if(getTotalPriceNotDiscount() < DISCOUNT_BASE_PRICE) {
             return getTotalDiscountSumExceptGift();
         }
-        return getTotalDiscountSumExceptGift() + getGiftEventDiscount();
+        return (-1) * (getTotalDiscountSumExceptGift() + getGiftEventDiscount());
     }
     
     // 할인 후 총 금액을 가져온다.

@@ -52,6 +52,6 @@ public class GiftEvent implements Event, Discount {
     @Override
     public String toString() {
         return "증정 이벤트: "
-                + SpotPrice.addPriceSpot((-1) * totalDiscount) + "원";
+                + SpotPrice.addPriceSpot((-1) * totalDiscount) + "원\n";
     }
 }
