@@ -10,10 +10,11 @@ class DiscountGeneratorTest {
 
     @DisplayName("할인 내용에 대한 정상 테스트")
     @ParameterizedTest
-    @CsvSource(value = {"12, 크리스마스 디데이 할인 : -2100원/평일 할인 : -0원/",
-                    "17, 크리스마스 디데이 할인 : -2600원/특별 할인 : -1000원/평일 할인 : -0원/",
-                    "22, 크리스마스 디데이 할인 : -3100원/주말 할인 : -0원/",
-                    "26, 평일 할인 : -0원/"})
+    @CsvSource(value =
+            {"12, 크리스마스 디데이 할인: -2100원/평일 할인: 0원/",
+            "17, 크리스마스 디데이 할인: -2600원/특별 할인: -1000원/평일 할인: 0원/",
+            "22, 크리스마스 디데이 할인: -3100원/주말 할인: 0원/",
+            "26, 평일 할인: 0원/"})
     void discountContentTest(String input, String expected) {
         DiscountGenerator discountGenerator = new DiscountGenerator(input, 0, 0);
         assertThat(discountGenerator.getDiscountContent()).isEqualTo(expected);
@@ -21,7 +22,9 @@ class DiscountGeneratorTest {
 
     @DisplayName("총 혜택금액에 대한 정상 테스트")
     @ParameterizedTest
-    @CsvSource(value = {"3, 2, 2, 6246"})
+    @CsvSource(value =
+            {"3, 2, 2, 6246",
+            "25, 3, 5, 14515"})
     void discountTotalDiscountTest(String inputDay, int main, int dessert, int expected) {
         DiscountGenerator discountGenerator = new DiscountGenerator(inputDay, main, dessert);
         assertThat(discountGenerator.getTotalDiscountSum()).isEqualTo(expected);

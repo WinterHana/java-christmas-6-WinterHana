@@ -4,7 +4,6 @@ import christmas.util.ErrorMessage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -21,8 +20,8 @@ class InputMenuExceptionTest {
     @DisplayName("입력 형식에 대한 예외 테스트")
     @ParameterizedTest
     @ValueSource(strings = {
-            "양송이수프-1, 타파스-0,     초코케이크-1",        // 1 미만의 수를 입력
-            "티본스테이크-AD,   제로콜라-1"                      // 개수 입력 시 숫자 이외의 글자가 입력됐을 때
+            "양송이수프-1, 타파스-0,     초코케이크-1",              // 1 미만의 수를 입력
+            "티본스테이크-AD,   제로콜라-1"                         // 개수 입력 시 숫자 이외의 글자가 입력됐을 때
     })
     void inputExceptionTest(String inputMenu) {
         assertThatThrownBy(() -> {inputMenuException.inputMenuException(inputMenu);})
@@ -45,7 +44,8 @@ class InputMenuExceptionTest {
     @DisplayName("음료만 주문한 것에 대한 예외 테스트")
     @ParameterizedTest
     @ValueSource(strings = {
-            "제로콜라-1,레드와인-2,샴페인-5"
+            "제로콜라-1,레드와인-2,샴페인-5",
+            "레드와인-1"
     })
     void onlyBeverageExceptionTest(String inputMenu) {
         assertThatThrownBy(() -> {inputMenuException.inputMenuException(inputMenu);})
@@ -70,7 +70,6 @@ class InputMenuExceptionTest {
     @ValueSource(strings = {
             "시저샐러드-1,바비큐립-2,시저샐러드-1",
             "바비큐립-3,바비큐립-2",
-            "시저샐러드-1"
     })
     void repeatedOrderExceptionTest(String inputMenu) {
         assertThatThrownBy(() -> {inputMenuException.inputMenuException(inputMenu);})
