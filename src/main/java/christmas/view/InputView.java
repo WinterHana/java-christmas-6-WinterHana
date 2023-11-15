@@ -2,11 +2,15 @@ package christmas.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import christmas.excepton.InputDayException;
+import christmas.excepton.InputMenuException;
 
 public class InputView {
     InputDayException inputDayException;
+    InputMenuException inputMenuException;
+
     public InputView() {
         inputDayException = new InputDayException();
+        inputMenuException = new InputMenuException();
     }
 
     public String inputDay() {
@@ -27,7 +31,16 @@ public class InputView {
 
     public String inputMenu() {
         System.out.println("주문하실 메뉴를 메뉴와 개수를 알려 주세요. (e.g. 해산물파스타-2,레드와인-1,초코케이크-1)");
-        String input = Console.readLine();
+        String input = "";
+        while(true) {
+            try {
+                input = Console.readLine();
+                inputMenuException.inputMenuException(input);
+                break;
+            } catch(IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
         return input;
     }
 }

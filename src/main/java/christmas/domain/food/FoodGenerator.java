@@ -6,7 +6,7 @@ import java.util.Map;
 
 /**
  * 문자열을 받아 Food에 대한 Map을 만든다.
- * 메뉴 입력에 대한 예외 처리를 여기서 진행한다.
+ * 그 후 관련 기능은 여기서 실행한다.
  */
 public class FoodGenerator {
     private Map<Food, Integer> foods;
@@ -20,7 +20,7 @@ public class FoodGenerator {
     private void generateFoods(String inputFood) {
         String[] splitMenu = inputFood.split(",");
         Arrays.stream(splitMenu).forEach(menu -> {
-            menu.replaceAll(" ", "");
+            menu = menu.replaceAll(" ", "");
             splitFoods(menu);
         });
     }
