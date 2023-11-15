@@ -1,6 +1,7 @@
 package christmas.domain.event;
 
 import christmas.domain.discount.Discount;
+import christmas.util.SpotPrice;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -50,6 +51,7 @@ public class GiftEvent implements Event, Discount {
 
     @Override
     public String toString() {
-        return "증정 이벤트: " + (-1) * totalDiscount + "원";
+        return "증정 이벤트: "
+                + SpotPrice.addPriceSpot((-1) * totalDiscount) + "원";
     }
 }

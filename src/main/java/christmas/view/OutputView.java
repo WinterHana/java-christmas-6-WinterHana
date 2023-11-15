@@ -2,6 +2,7 @@ package christmas.view;
 
 import christmas.controller.Account;
 import christmas.controller.AccountController;
+import christmas.util.SpotPrice;
 
 public class OutputView {
     private Account account;
@@ -27,7 +28,7 @@ public class OutputView {
     private void outputTotalPriceNotDiscount() {
         System.out.println("<할인 전 총주문 금액>");
         account.getTotalPriceNotDiscount();
-        System.out.println(account.getTotalPriceNotDiscount() + "원\n");
+        System.out.println(SpotPrice.addPriceSpot(account.getTotalPriceNotDiscount()) + "원\n");
     }
 
     private void outputGiftMenu() {
@@ -42,13 +43,12 @@ public class OutputView {
 
     private void outputTotalDiscountSum() {
         System.out.println("<총혜택 금액>");
-
-        System.out.println(account.getTotalDiscountSum() + "원\n");
+        System.out.println(SpotPrice.addPriceSpot(account.getTotalDiscountSum()) + "원\n");
     }
 
     private void outputTotalPriceDiscount() {
         System.out.println("<할인 후 예상 결제 금액>");
-        System.out.println(account.getTotalPriceDiscount() + "원\n");
+        System.out.println(SpotPrice.addPriceSpot(account.getTotalPriceDiscount()) + "원\n");
     }
 
     private void outputSymbolEventContent() {

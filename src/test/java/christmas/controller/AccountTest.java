@@ -26,14 +26,14 @@ class AccountTest {
         assertThat(account.getTotalDiscountSum()).isEqualTo(31246);
     }
 
-    @DisplayName("할인 혜택 내역에 대한 정상 테스트(, 제외)")
+    @DisplayName("할인 혜택 내역에 대한 정상 테스트")
     @Test
     void getTotalDiscountContent() {
         assertThat(account.getTotalDiscountContent()).contains(
-                "크리스마스 디데이 할인: -1200원",
-                        "평일 할인: -4046원",
-                        "특별 할인: -1000원",
-                        "증정 이벤트: -25000원"
+                "크리스마스 디데이 할인: -1,200원",
+                        "평일 할인: -4,046원",
+                        "특별 할인: -1,000원",
+                        "증정 이벤트: -25,000원"
         );
     }
 
