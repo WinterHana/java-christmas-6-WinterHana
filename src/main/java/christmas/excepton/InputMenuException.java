@@ -12,7 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InputMenuException {
-    final int MAXIMUM_ORDER = 20;
+    private final int MAXIMUM_ORDER = 20;
     FoodGenerator foodGenerator;
     List<String> foods;
 
