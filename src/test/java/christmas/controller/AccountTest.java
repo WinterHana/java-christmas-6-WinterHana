@@ -23,7 +23,7 @@ class AccountTest {
     @DisplayName("출력할 총혜택 금액에 대한 정상 테스트")
     @Test
     void getTotalDiscountSumTest() {
-        assertThat(account.getTotalDiscountSum()).isEqualTo(31246);
+        assertThat(account.getTotalDiscountSum()).isEqualTo(-31246);
     }
 
     @DisplayName("할인 혜택 내역에 대한 정상 테스트")
